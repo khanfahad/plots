@@ -27,11 +27,39 @@ stopwords.add('know')
 stopwords.add('go')
 stopwords.add('may')
 stopwords.add('upon')
+stopwords.add('AL')
+stopwords.add('thus')
+stopwords.add('art')
+
 
 # re-generate the word cloud
 quran_wc.generate(quran_words)
 
 # display the cloud
+fig = plt.figure()
+fig.set_figwidth(14) # set width
+fig.set_figheight(18) # set height
+
+plt.imshow(quran_wc, interpolation='bilinear')
+plt.axis('off')
+plt.show()
+
+mosque = np.array(Image.open('mosque2.jpg'))
+
+fig = plt.figure()
+fig.set_figwidth(14) # set width
+fig.set_figheight(18) # set height
+
+plt.imshow(mosque, cmap=plt.cm.gray, interpolation='bilinear')
+plt.axis('off')
+plt.show()
+
+quran_wc = WordCloud(background_color='white', max_words=2000, mask=mosque, stopwords=stopwords)
+
+# generate the word cloud
+quran_wc.generate(quran_words)
+
+# display the word cloud
 fig = plt.figure()
 fig.set_figwidth(14) # set width
 fig.set_figheight(18) # set height
