@@ -1,4 +1,8 @@
 from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image 
+
 quran_words = open('quran.txt', 'r').read()
 stopwords = set(STOPWORDS)
 quran_wc = WordCloud(background_color = 'white', stopwords = stopwords)
